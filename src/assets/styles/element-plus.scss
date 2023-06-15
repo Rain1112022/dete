@@ -1,0 +1,115 @@
+//https://blog.csdn.net/ezconn/article/details/90052114
+//透明度 95%=FA   95%=F2  90%=E6 85%=D9 80%=CC  75%=BF 50%=80 25%=40  20%=33
+:root {
+  --pc-theme-bg-color: #1890ff;
+  --pc-theme-hover-color: #1890ffbf;
+  --pc-theme-active-color: #1890ff80;
+  --pc-theme-disabled-color: #1890ff40;
+}
+
+$theme-color: var(--pc-theme-bg-color);
+$theme-bg-color: var(--pc-theme-bg-color);
+$theme-border-color: var(--pc-theme-active-color);
+$theme-active-color: var(--pc-theme-active-color);
+$theme-hover-color: var(--pc-theme-hover-color);
+$theme-disabled-color: var(--pc-theme-disabled-color);
+$text-color-primary: #f4f4f5;
+
+//使用vue的id=app覆盖样式，有些样式无法彻底覆盖，所以使用:root
+:root {
+  --el-color-primary: #{$theme-color} !important;
+  //--el-button-hover-bg-color 和 --el-button-hover-border-color使用的值
+  --el-color-primary-light-3: #{$theme-hover-color} !important;
+  // --el-button-active-bg-color和 --el-button-active-border-color
+  --el-color-primary-dark-2: #{$theme-active-color} !important;
+  // --el-button-disabled-bg-color 和 --el-button-disabled-border-color
+  --el-color-primary-light-5: #{$theme-disabled-color} !important;
+}
+
+//使用vue的id=app来重写主题
+#app {
+  .el-button {
+    cursor: pointer;
+  }
+}
+
+.theme-full-color {
+  @extend .theme-bg-color;
+  @extend .theme-font-color;
+}
+
+.theme-bg-color {
+  background-color: #{$theme-color} !important;
+}
+
+.theme-font-color {
+  color: #{$theme-color} !important;
+}
+
+.el-button.is-link:focus {
+  color: var(--el-button-text-color);
+}
+
+.el-table {
+  --el-table-border-color: var(--el-border-color-lighter);
+  --el-table-border: 1px solid var(--el-table-border-color);
+  --el-table-text-color: var(--el-text-color-primary);
+  --el-table-header-text-color: var(--el-text-color-primary);
+  --el-table-row-hover-bg-color: var(--el-fill-color-light);
+  --el-table-current-row-bg-color: var(--el-color-primary-light-9);
+  --el-table-header-bg-color: var(--el-bg-color);
+  --el-table-fixed-box-shadow: var(--el-box-shadow-light);
+  --el-table-bg-color: var(--el-fill-color-blank);
+  --el-table-tr-bg-color: var(--el-fill-color-blank);
+  --el-table-expanded-cell-bg-color: var(--el-fill-color-blank);
+  --el-table-fixed-left-column: inset 10px 0 10px -10px rgba(0, 0, 0, 0.15);
+  --el-table-fixed-right-column: inset -10px 0 10px -10px rgba(0, 0, 0, 0.15);
+}
+.el-dialog {
+  --el-dialog-width: 960px;
+}
+// .el-dialog {
+//   --el-dialog-width: 50%;
+//   --el-dialog-margin-top: 15vh;
+//   --el-dialog-bg-color: var(--el-bg-color);
+//   --el-dialog-box-shadow: var(--el-box-shadow);
+//   --el-dialog-title-font-size: var(--el-font-size-large);
+//   --el-dialog-content-font-size: 14px;
+//   --el-dialog-font-line-height: var(--el-font-line-height-primary);
+//   --el-dialog-padding-primary: 20px;
+//   --el-dialog-border-radius: var(--el-border-radius-small);
+//   position: relative;
+//   margin: var(--el-dialog-margin-top, 15vh) auto 50px;
+//   background: var(--el-dialog-bg-color);
+//   border-radius: var(--el-dialog-border-radius);
+//   box-shadow: var(--el-dialog-box-shadow);
+//   box-sizing: border-box;
+//   width: var(--el-dialog-width, 50%);
+// }
+.el-dialog__header {
+  margin-right: 0 !important;
+  border-bottom: 1px solid var(--el-border-color);
+}
+
+.el-dialog__footer {
+  border-top: 1px solid var(--el-border-color);
+}
+.el-dialog__headerbtn .el-dialog__close {
+  font-size: 28px;
+}
+.el-icon {
+  font-size: 24px;
+  :hover {
+    color: var(--el-color-primary) !important;
+  }
+  cursor: pointer;
+}
+.el-radio-button {
+  --el-radio-button-checked-bg-color: #4545e3;
+  --el-radio-button-checked-text-color: #fff;
+  --el-radio-button-checked-border-color: #4545e3;
+  --el-radio-button-disabled-checked-fill: var(--el-border-color-extra-light);
+}
+.el-radio-button__inner {
+  color: rgb(10, 9, 9);
+}
